@@ -1,6 +1,16 @@
 <h2>Description</h2>
 PHX.IMGA is a simple and lightweight image gallery based on PHP, HTML and JS. The search engine based on a simple tag system. 
 
+<h2>Features</h2>
+<ul>
+<li>easy to use and lightweight</li>
+<li>all images are stored in the database</li>
+<li>seach images via tags</li>
+<li>marking tags as categories to find images faster</li>
+<li>two different ways to search images</li>
+<li>list of most used tags</li>
+</ul>
+
 <h2>Install</h2>
 <ol>
 <li>create a database called phx.imga</li>
