@@ -164,9 +164,19 @@
                     $imgs = mysql_query($iq);                    
                     
                     while($im = mysql_fetch_assoc($imgs))
-                    {                        
+                    {     
+						$query = "SELECT imgblob from images where id=".$im["iid"];
+					    $rs = mysql_fetch_array(mysql_query($query));					
+						$gd = imagecreatefromstring(base64_decode($rs["imgblob"]));
+						$width = imagesx($gd);
+						$height = imagesy($gd);
+					
+					
                         echo '<div class="item">';
-                        echo '<a class="lightbox" href="showimage.php?id='.$im["iid"].'" title="" ><img src="showimage.php?id='.$im["iid"].'" /></a>';
+                        echo '<a class="lightbox" href="showimage.php?id='.$im["iid"].'" title="" >';
+						echo '<input type="hidden" class="x" name="x" value="'.$width.'" />';
+						echo '<input type="hidden" class="y" name="y" value="'.$height.'" />';
+						echo '<img src="showimage.php?id='.$im["iid"].'" /></a>';
                         echo '<p class="info">';
                         echo '<a class="ending" href="javascript:void(0);">'.$this->__getNameFromImage($im["iid"]).'</a>';
                         echo '<a class="ending" href="javascript:void(0);">'.$this->__getEndingFromImage($im["iid"]).'</a>';

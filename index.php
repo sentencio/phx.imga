@@ -215,10 +215,8 @@
         // dynamic width/height
         $('a.lightbox').each(function() {  
             
-            var img = $(this).children("img"); 
-
-            var theImage = new Image();
-            theImage.src = img.attr("src");
+            var x = $(this).children("input.x"); 
+			var y = $(this).children("input.y"); 
             
             $(this).fancybox({
                 'transitionIn'	:	'elastic',
@@ -227,8 +225,8 @@
                 'speedOut'		:	200, 
                 'overlayShow'	:	false,
                 'type'          :   'iframe',
-                'width'         :   theImage.width + 20,
-                'height'        :   theImage.height + 20
+                'width'         :   parseInt(x.val()) + 20,
+                'height'        :   parseInt(y.val()) + 20
             });
             
         });
